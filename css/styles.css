@@ -513,3 +513,14 @@ a:focus {
   height: auto; /* Deixa a altura ser automática */
   /* Removemos o object-fit, já que não é mais necessário */
 }
+
+/*
+  COLE ESTE CÓDIGO NO FINAL DO SEU FICHEIRO CSS
+  Ele garante que o botão fique na camada da frente.
+*/
+
+/* Alvo para o botão e seu contentor */
+.btn {
+  position: relative; /* Define um contexto de posicionamento */
+  z-index: 10;        /* Traz o botão para a frente */
+}
