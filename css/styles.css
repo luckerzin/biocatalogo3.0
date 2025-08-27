@@ -524,3 +524,14 @@ a:focus {
   position: relative; /* Define um contexto de posicionamento */
   z-index: 10;        /* Traz o botão para a frente */
 }
+/*
+  COLE ESTE CÓDIGO NO FINAL DO SEU FICHEIRO CSS
+*/
+
+.hero-button-container {
+  text-align: center;
+  margin-top: 2rem; /* Adiciona espaço entre o vídeo e o botão */
+  margin-bottom: 2rem;
+  position: relative; /* Necessário para o z-index funcionar */
+  z-index: 10;        /* Garante que o botão fica à frente de tudo */
+}
