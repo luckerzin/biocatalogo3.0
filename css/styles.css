@@ -504,37 +504,47 @@ a:focus {
 }
 
 /*
-  Adicione ou substitua este código no seu ficheiro CSS.
+  APAGUE os estilos de vídeo que pusemos antes (.secao-com-video, etc.)
+  e SUBSTITUA por estes.
 */
 
-/* 1. O contentor que vai definir os limites do vídeo */
-.secao-com-video {
-  position: relative; /* CRÍTICO: Cria a "âncora" para o vídeo */
-  height: 60vh;       /* Define a altura da secção do vídeo (60% da altura do ecrã). Pode ajustar este valor. */
-  overflow: hidden;   /* Esconde partes do vídeo que possam sair fora da secção */
-  
-  /* O resto é para alinhar o texto que fica por cima */
-  display: flex;
+/* A "caixa" que terá o tamanho da sua foto antiga */
+.hero-com-video {
+  position: relative; /* Essencial para "prender" o vídeo aqui dentro */
+  height: 450px;      /* ALTURA FIXA: Ajuste este valor para a altura que a sua foto tinha */
+  width: 100%;
+  overflow: hidden;   /* Esconde o que sobrar do vídeo */
+  display: flex;      /* Ajuda a alinhar o conteúdo por cima */
   align-items: center;
-  justify-content: center;
-  color: white;
-  text-align: center;
 }
 
-/* 2. O vídeo em si, que será "preso" dentro do contentor */
-.video-background {
-  position: absolute; /* CRÍTICO: "Solta" o vídeo para ser posicionado pela âncora */
+/* O vídeo que vai preencher a "caixa" */
+.hero-com-video .video-background {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: -1;        /* Coloca-o atrás de todo o conteúdo */
+  object-fit: cover; /* Faz o vídeo cobrir a caixa inteira sem distorcer */
+  z-index: 1;        /* Põe o vídeo no fundo, mas à frente do fundo da página */
 }
 
-/* 3. O conteúdo de texto por cima do vídeo */
-.conteudo-por-cima {
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
+/* O conteúdo que fica por cima do vídeo */
+.hero-com-video .hero-conteudo {
+  position: relative; /* Põe o conteúdo à frente do vídeo */
+  z-index: 2;
+  width: 100%;
+  padding: 0 5%;    /* Espaçamento lateral */
+  box-sizing: border-box;
+}
+
+/* Um exemplo de estilo para o texto, parecido com o da sua foto */
+.texto-sobre-o-projeto {
+  background-color: rgba(255, 255, 255, 0.85); /* Fundo branco semi-transparente */
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 600px; /* Largura máxima da caixa de texto */
+  margin: 0 auto;   /* Centraliza a caixa de texto */
+  color: #333;     /* Cor escura para o texto */
+  text-align: center;
 }
