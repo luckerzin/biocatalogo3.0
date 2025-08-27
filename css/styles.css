@@ -503,48 +503,17 @@ a:focus {
     margin-bottom: 0;
 }
 
-/*
-  APAGUE os estilos de vídeo que pusemos antes (.secao-com-video, etc.)
-  e SUBSTITUA por estes.
-*/
+/* Adicione este código ao seu ficheiro CSS */
 
-/* A "caixa" que terá o tamanho da sua foto antiga */
-.hero-com-video {
-  position: relative; /* Essencial para "prender" o vídeo aqui dentro */
-  height: 450px;      /* ALTURA FIXA: Ajuste este valor para a altura que a sua foto tinha */
-  width: 100%;
-  overflow: hidden;   /* Esconde o que sobrar do vídeo */
-  display: flex;      /* Ajuda a alinhar o conteúdo por cima */
-  align-items: center;
+.video-container {
+  max-width: 700px; /* Largura máxima do vídeo. Ajuste se necessário. */
+  margin: 25px auto;  /* Espaçamento em cima/em baixo e centraliza na horizontal. */
+  border-radius: 12px; /* Bordas arredondadas, igual à sua foto. */
+  overflow: hidden;    /* Essencial para que o vídeo não "vaze" das bordas arredondadas. */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade. */
 }
 
-/* O vídeo que vai preencher a "caixa" */
-.hero-com-video .video-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Faz o vídeo cobrir a caixa inteira sem distorcer */
-  z-index: 1;        /* Põe o vídeo no fundo, mas à frente do fundo da página */
-}
-
-/* O conteúdo que fica por cima do vídeo */
-.hero-com-video .hero-conteudo {
-  position: relative; /* Põe o conteúdo à frente do vídeo */
-  z-index: 2;
-  width: 100%;
-  padding: 0 5%;    /* Espaçamento lateral */
-  box-sizing: border-box;
-}
-
-/* Um exemplo de estilo para o texto, parecido com o da sua foto */
-.texto-sobre-o-projeto {
-  background-color: rgba(255, 255, 255, 0.85); /* Fundo branco semi-transparente */
-  padding: 30px;
-  border-radius: 8px;
-  max-width: 600px; /* Largura máxima da caixa de texto */
-  margin: 0 auto;   /* Centraliza a caixa de texto */
-  color: #333;     /* Cor escura para o texto */
-  text-align: center;
+.video-container video {
+  width: 100%;      /* Faz o vídeo ocupar toda a largura do seu contentor. */
+  display: block;   /* Remove qualquer margem ou espaço estranho que o navegador possa adicionar. */
 }
