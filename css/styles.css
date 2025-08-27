@@ -503,40 +503,38 @@ a:focus {
     margin-bottom: 0;
 }
 
-/* --- ESTILOS PARA O VÍDEO DE FUNDO --- */
+/*
+  Adicione ou substitua este código no seu ficheiro CSS.
+*/
 
-/* Secção que contém o vídeo */
+/* 1. O contentor que vai definir os limites do vídeo */
 .secao-com-video {
-  position: relative; 
-  height: 70vh; /* Altura da secção, ajuste como quiser */
-  overflow: hidden;
+  position: relative; /* CRÍTICO: Cria a "âncora" para o vídeo */
+  height: 60vh;       /* Define a altura da secção do vídeo (60% da altura do ecrã). Pode ajustar este valor. */
+  overflow: hidden;   /* Esconde partes do vídeo que possam sair fora da secção */
+  
+  /* O resto é para alinhar o texto que fica por cima */
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
   text-align: center;
-  color: white; 
 }
 
-/* O próprio vídeo */
+/* 2. O vídeo em si, que será "preso" dentro do contentor */
 .video-background {
-  position: absolute; 
+  position: absolute; /* CRÍTICO: "Solta" o vídeo para ser posicionado pela âncora */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; 
-  z-index: -1; 
+  object-fit: cover;
+  z-index: -1;        /* Coloca-o atrás de todo o conteúdo */
 }
 
-/* O texto que fica por cima */
+/* 3. O conteúdo de texto por cima do vídeo */
 .conteudo-por-cima {
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.3); 
-  border-radius: 10px;
-}
-
-.conteudo-por-cima h2 {
-  font-size: 3em;
-  margin: 0;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
 }
