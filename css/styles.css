@@ -509,6 +509,7 @@ a:focus {
 
 .hero-image video {
   width: 100%;
-  height: 400px; /* Mesma altura que a sua imagem tinha */
-  object-fit: cover; /* Garante que o vídeo preenche o espaço sem distorcer */
+  height: 400px;
+  object-fit: contain; /* Esta é a solução! */
+  background-color: black; /* Adiciona um fundo preto para as barras laterais */
 }
