@@ -535,3 +535,23 @@ a:focus {
   position: relative; /* Necessário para o z-index funcionar */
   z-index: 10;        /* Garante que o botão fica à frente de tudo */
 }
+
+/* DENTRO DO SEU FICHEIRO style.css */
+
+.swiper-container {
+  width: 100%;
+  height: 500px; /* Altura do carrossel, ajuste se necessário */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+:root {
+  --swiper-theme-color: #4a7c3c; /* Muda a cor das setas e bolinhas para o verde do seu site */
+}
