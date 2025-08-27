@@ -356,39 +356,45 @@ if (typeof module !== 'undefined' && module.exports) {
     };
 }
 
-// DENTRO DO SEU FICHEIRO js/main.js
+// Coloque este código no seu ficheiro JavaScript
 
-async function carregarPlanta(idDaPlanta) {
-    // ...seu código que busca os dados da planta...
-    const dadosDaPlanta = await buscarPlantaNoFirestore(idDaPlanta);
+// --- INÍCIO DO CÓDIGO DO CARROSSEL ---
 
-    // --- CÓDIGO DO CARROSSEL ---
-    const swiperWrapper = document.querySelector('.swiper-wrapper');
-    swiperWrapper.innerHTML = '';
+// 1. CRIE A SUA LISTA DE IMAGENS PARA ESTA ESPÉCIE
+// Coloque os caminhos para as suas imagens aqui.
+// Lembre-se que o caminho parte do ficheiro HTML, não do ficheiro JS.
+const imagensDoPandano = [
+    '../images/frutapandano.jpg',
+    '../images/arvorepandano.jpg',
+    // Adicione quantas imagens quiser!
+];
 
-    dadosDaPlanta.imageUrls.forEach(url => {
-        const slide = document.createElement('div');
-        slide.classList.add('swiper-slide');
-        
-        const img = document.createElement('img');
-        img.src = url;
-        
-        slide.appendChild(img);
-        swiperWrapper.appendChild(slide);
-    });
+// 2. Encontre o contentor dos slides no HTML
+const swiperWrapper = document.querySelector('.swiper-wrapper');
 
-    const swiper = new Swiper('.swiper', {
-        loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
-    // --- FIM DO CÓDIGO DO CARROSSEL ---
+// 3. Crie um slide para cada imagem da sua lista
+imagensDoPandano.forEach(urlDaImagem => {
+    const slide = document.createElement('div');
+    slide.classList.add('swiper-slide');
+    
+    const img = document.createElement('img');
+    img.src = urlDaImagem;
+    
+    slide.appendChild(img);
+    swiperWrapper.appendChild(slide);
+});
 
-    // ...seu código que preenche o nome, descrição, etc...
-}
+// 4. Inicie o Swiper (o código para isto é o mesmo de antes)
+const swiper = new Swiper('.swiper', {
+    loop: true,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
+
+// --- FIM DO CÓDIGO DO CARROSSEL ---
