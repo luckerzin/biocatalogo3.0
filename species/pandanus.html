@@ -7,23 +7,29 @@
     
     <link rel="stylesheet" href="../css/styles.css">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
+        /* Define o tamanho da "caixa" do carrossel */
         .swiper-container {
             width: 100%;
-            height: 500px; /* Altura do carrossel, pode ajustar */
-            border-radius: 12px;
+            height: 450px; /* ALTURA DO CARROSSEL - AJUSTE ESTE VALOR SE QUISER */
+            border-radius: 12px; /* Bordas arredondadas */
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
+
+        /* Garante que a imagem preenche o espaço do slide */
         .swiper-slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+
+        /* Define a cor das setas e das bolinhas para o verde do seu site */
         :root {
-            --swiper-theme-color: #4a7c3c; /* Cor verde para as setas/bolinhas */
+            --swiper-theme-color: #4a7c3c;
+            --swiper-navigation-size: 30px; /* Tamanho das setas */
         }
     </style>
 </head>
@@ -53,7 +59,8 @@
             <article class="species-article">
                 <header class="species-header">
                     <h2>Pândano</h2>
-                    <p class="scientific-name-large">Pandanus utilis</p> </header>
+                    <p class="scientific-name-large">Pandanus utilis</p>
+                </header>
 
                 <div class="species-content">
                     
@@ -69,35 +76,19 @@
 
                     <div class="species-details">
                         <h3>Informações Botânicas</h3>
-                        
                         <div class="detail-group">
                             <h4>Nome Científico:</h4>
-                            <p>Pandanus utilis</p> </div>
-
+                            <p>Pandanus utilis</p>
+                        </div>
                         <div class="detail-group">
                             <h4>Família:</h4>
                             <p>Pandanaceae</p>
                         </div>
-
                         <div class="detail-group">
                             <h4>Descrição:</h4>
-                            <p>Árvore de cerca de 8 a 10 m de altura, originária de Madagascar, com tronco reto e cor pardo-acinzentada. O tronco tem marcas circulares, que mostram onde as folhas estavam presas, e pequenos pontos claros chamados lenticelas. Na base, há muitas raízes aéreas cilíndricas e inclinadas, com uma ponta protetora chamada coifa. Os galhos formam uma copa em forma de cone, e os galhos menores se dividem em dois. As folhas crescem nas pontas dos galhos, são longas, duras, não têm cabinho, têm bordas com espinhos e crescem em espiral. A árvore tem flores masculinas e femininas na mesma planta (monóica). As flores masculinas aparecem nas laterais ou nas pontas dos galhos e se ramificam. As flores femininas ficam nas pontas, arredondadas, e dão frutos parecidos com pinhas, que aparecem durante o ano todo.</p>
+                            <p>Árvore de cerca de 8 a 10 m de altura, originária de Madagascar, com tronco reto e cor pardo-acinzentada...</p>
                         </div>
-
-                        <div class="detail-group">
-                            <h4>Localização no Jardim:</h4>
-                            <p>Próximo a entrada do auditorio.</p>
                         </div>
-
-                        <div class="detail-group">
-                            <h4>Características Especiais:</h4>
-                            <ul>
-                                <li>Multiplica-se por sementes e enraizamento de ramos</li>
-                                <li>Tem grande efeito ornamental em parques</li>
-                                <li>Se desenvolve espiraladamente</li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
             </article>
         </div>
@@ -116,8 +107,7 @@
 <script>
     // 1. CRIE A SUA LISTA DE IMAGENS AQUI
     const imagensDaPlanta = [
-        '../images/frutapandano.jpg', // Verifique se este caminho está correto
-        // Adicione aqui os caminhos para as outras fotos
+        '../images/frutapandano.jpg',
         '../images/arvorepandano.jpg',
         // Exemplo: '../images/pandano-arvore.jpg'
     ];
