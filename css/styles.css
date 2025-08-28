@@ -582,3 +582,8 @@ a:focus {
 :root {
   --swiper-theme-color: #4a7c3c; /* Verde do seu site */
 }
+
+/* Adicione esta classe para ocultar elementos */
+.oculto {
+  display: none;
+}
