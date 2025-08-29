@@ -9,19 +9,20 @@
     <link rel="stylesheet" href="../css/styles.css">
     
     <style>
-        .species-image-large {
-            width: 100%;
-            height: 500px; /* ALTURA DA IMAGEM - AJUSTE ESTE VALOR SE QUISER */
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+.species-image-large {
+    width: 100%;
+    max-width: 800px; /* Define uma largura máxima para a imagem não ficar gigante */
+    margin: 0 auto;   /* Centraliza a imagem na horizontal */
+    border-radius: 12px;
+    overflow: hidden; /* Mantém as bordas arredondadas */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
 
-        .species-image-large img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Faz a imagem preencher o espaço sem distorcer */
-        }
+.species-image-large img {
+    width: 100%;
+    height: auto; /* A MUDANÇA MAIS IMPORTANTE: A altura agora é automática */
+    display: block;
+}
     </style>
 </head>
 <body>
