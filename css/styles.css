@@ -587,3 +587,9 @@ a:focus {
 .oculto {
   display: none;
 }
+
+/* Opção alternativa: justificar apenas os parágrafos */
+
+p {
+    text-align: justify;
+}
