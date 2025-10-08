@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guapuruvu - BioCatálogo ETEC</title>
+    <link rel="icon" href="../favicon/favicon-32x32.png" type="image/x-icon">
+    
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        .swiper {
+            width: 100%;
+            height: 500px; /* ALTURA DO CARROSSEL - PODE AJUSTAR ESTE VALOR */
+            border-radius: 12px;
+        }
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        :root {
+            --swiper-theme-color: #ff0000; /* Cor verde para as setas/bolinhas */
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="title-container">
+            <img src="../images/logo.png" alt="Logo BioCatálogo ETEC" class="site-logo">
+            <div>
+                <h1 class="site-title">
+                    <a href="../index.html">BioCatálogo ETEC</a>
+                </h1>
+                <p class="site-subtitle">Cônego José Bento - Jacareí</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="main-content">
+    <section class="species-detail">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../catalog.html">&larr; Voltar ao catálogo</a>
+            </nav>
+
+            <article class="species-article">
+                <header class="species-header">
+                    <h2>Palmeira-real</h2>
+                    <p class="scientific-name-large">Archontophoenix cunninghamiana</p>
+                </header>
+
+                <div class="species-content">
+                    
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+
+                    <div class="species-details">
+                        <h3>Informações Botânicas</h3>
+                        
+                        <div class="detail-group">
+                            <h4>Nome Científico:</h4>
+                            <p>Archontophoenix cunninghamiana</p>
+                        </div>
+
+                        <div class="detail-group">
+                            <h4>Família:</h4>
+                            <p>Arecaceae </p>
+                        </div>
+                        
+                        <div class="detail-group">
+                            <h4>Origem:</h4>
+                            <p>Austrália </p>
+                        </div>
+
+                        <div class="detail-group">
+                            <h4>Descrição:</h4>
+                            <p>Palmeira elegante de tronco único, liso e acinzentado, que pode atingir de 15 a 20 metros de altura. Destaca-se por ter uma seção verde e lisa no topo do tronco, logo abaixo da coroa de folhas (o capitel ou palmito ornamental). Suas folhas são grandes, em formato de pena (pinadas) e arqueadas. As flores, de cor lilás ou violeta, e os frutos, pequenas esferas vermelhas, nascem em grandes cachos que surgem do tronco, abaixo da coroa de folhas.</p>
+                        </div>
+
+                        <div class="detail-group">
+                            <h4>Características Especiais:</h4>
+                            <ul>
+                                <li><strong>O Palmito Verde Ornamental:</strong> Possui um capitel (coroa) verde e liso no topo do tronco, que é uma característica marcante e muito ornamental.</li>
+                                <li><strong>Flores Abaixo da Coroa:</strong> Seus cachos de flores e frutos nascem diretamente do tronco, logo abaixo da seção verde, e não no meio das folhas como em outras palmeiras</li>
+                                <li><strong>Crescimento Rápido:</strong> É considerada uma palmeira de crescimento relativamente rápido, o que a torna popular em projetos paisagísticos.</li>
+                                <li><strong>Elegância Vertical:</strong> Seu porte alto, reto e esbelto é muito valorizado para criar linhas verticais e um senso de imponência nos jardins.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 ETEC Cônego José Bento - Jacareí, SP</p>
+        <p>Trabalho de Conclusão de Curso - Técnico em Meio Ambiente</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="../js/main.js"></script>
+
+<script>
+    // Defina a lista de imagens para esta planta
+    const imagensDaPlanta = [
+        '../images/palmeirareal.jpg', // Mude para o nome real da sua foto 1
+        '../images/palmeirareal1.jpg',  // Mude para o nome real da sua foto 2
+        '../images/palmeirareal2.jpg'   // Mude para o nome real da sua foto 3
+    ];
+
+    // Encontra o contentor onde vamos colocar as imagens
+    const swiperWrapper = document.querySelector('.swiper-wrapper');
+
+    // Cria e adiciona um slide para cada imagem da lista
+    imagensDaPlanta.forEach(urlDaImagem => {
+        swiperWrapper.innerHTML += `
+            <div class="swiper-slide">
+                <img src="${urlDaImagem}">
+            </div>
+        `;
+    });
+
+    // Inicia o Swiper!
+    const swiper = new Swiper('.swiper', {
+        loop: true,
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    });
+</script>
+
+</body>
+</html>
