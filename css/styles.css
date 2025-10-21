@@ -11,7 +11,7 @@ body {
     color: #333;
     background-image: url('../images/fundo.png'); /* Coloque aqui o caminho correto para a sua imagem */
     background-color: #95d47e; /* Uma cor de fundo de reserva, caso a imagem falhe */
-    background-repeat: repeat; /* Para o padrão se repetir */
+    background-size: cover; /* Para o padrão se repetir */
     background-attachment: fixed; /* A PROPRIEDADE MÁGICA: Fixa o fundo no ecrã */
 }
 
