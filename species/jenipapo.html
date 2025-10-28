@@ -7,20 +7,23 @@
     <link rel="icon" href="../favicon/favicon-32x32.png" type="image/x-icon">
     
     <link rel="stylesheet" href="../css/styles.css">
-    
+        
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <style>
-        .species-image-large {
+        .swiper {
             width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
+            height: 500px; /* ALTURA DO CARROSSEL - PODE AJUSTAR ESTE VALOR */
             border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        .species-image-large img {
-            width: 100%;
-            height: auto;
+        .swiper-slide img {
             display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        :root {
+            --swiper-theme-color: #ff0000; /* Cor verde para as setas/bolinhas */
         }
     </style>
 </head>
@@ -55,8 +58,12 @@
 
                 <div class="species-content">
                     
-                    <div class="species-image-large">
-                        <img src="../images/jenipapofruta.jpg" alt="Foto da planta Tipuana">
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
                     </div>
 
                     <div class="species-details">
@@ -105,7 +112,37 @@
     </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <script src="../js/main.js"></script>
+
+<script>
+    // Defina a lista de imagens para esta planta
+    const imagensDaPlanta = [
+        '../images/jenipapo-tronco.jpg', // Mude para o nome real da sua foto 1
+        '../images/jenipapo-trono.jpg',  // Mude para o nome real da sua foto 2
+        '../images/jenipapofruta.jpg'   // Mude para o nome real da sua foto 3
+    ];
+
+    // Encontra o contentor onde vamos colocar as imagens
+    const swiperWrapper = document.querySelector('.swiper-wrapper');
+
+    // Cria e adiciona um slide para cada imagem da lista
+    imagensDaPlanta.forEach(urlDaImagem => {
+        swiperWrapper.innerHTML += `
+            <div class="swiper-slide">
+                <img src="${urlDaImagem}">
+            </div>
+        `;
+    });
+
+    // Inicia o Swiper!
+    const swiper = new Swiper('.swiper', {
+        loop: true,
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    });
+</script>
 
 </body>
 </html>
