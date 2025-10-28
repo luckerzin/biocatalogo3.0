@@ -612,3 +612,23 @@ p {
 :root {
   --swiper-theme-color: #4a7c3c;
 }
+/* --- Estilos para a Barra de Pesquisa --- */
+.search-container {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+#barraDePesquisa {
+    width: 100%;
+    max-width: 500px;
+    padding: 14px 20px;
+    font-size: 1rem;
+    border-radius: 50px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+#barraDePesquisa:focus {
+    outline: 2px solid #4a7c3c;
+    border-color: #4a7c3c;
+}
