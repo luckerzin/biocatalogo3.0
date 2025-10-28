@@ -180,10 +180,6 @@ function initHomePage() {
  */
 function initCatalogPage() {
     console.log('Catalog page loaded');
-    
-    // Add search functionality
-    addSearchFeature();
-    
     // Add filtering capabilities
     addFilterFeature();
 }
@@ -204,59 +200,6 @@ function initSpeciesPage() {
 /**
  * Add search functionality to catalog page
  */
-function addSearchFeature() {
-    const catalogHeader = document.querySelector('.catalog-header .container');
-    if (!catalogHeader) return;
-    
-    // Create search input
-    const searchContainer = document.createElement('div');
-    searchContainer.className = 'search-container';
-    searchContainer.style.marginTop = '2rem';
-    
-    const searchInput = document.createElement('input');
-    searchInput.type = 'text';
-    searchInput.placeholder = 'Buscar plantas...';
-    searchInput.className = 'search-input';
-    searchInput.style.cssText = `
-        width: 100%;
-        max-width: 400px;
-        padding: 1rem;
-        border: 2px solid #e0e0e0;
-        border-radius: 8px;
-        font-size: 1rem;
-        transition: border-color 0.3s ease;
-    `;
-    
-    searchContainer.appendChild(searchInput);
-    catalogHeader.appendChild(searchContainer);
-    
-    // Add search functionality
-    searchInput.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
-        const speciesCards = document.querySelectorAll('.species-card');
-        
-        speciesCards.forEach(card => {
-            const title = card.querySelector('h3').textContent.toLowerCase();
-            const scientificName = card.querySelector('.scientific-name').textContent.toLowerCase();
-            
-            if (title.includes(searchTerm) || scientificName.includes(searchTerm)) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    });
-    
-    // Style focus state
-    searchInput.addEventListener('focus', function() {
-        this.style.borderColor = '#4a7c3c';
-        this.style.outline = 'none';
-    });
-    
-    searchInput.addEventListener('blur', function() {
-        this.style.borderColor = '#e0e0e0';
-    });
-}
 
 /**
  * Add basic filtering feature
@@ -354,4 +297,41 @@ if (typeof module !== 'undefined' && module.exports) {
         navigateToSpecies,
         getCurrentPage
     };
+}
+
+// =======================================================
+// FUNÇÃO DE FILTRO QUE O SEU HTML PROCURA
+// =======================================================
+function filtrarEspecies() {
+    
+    // 1. Pega o elemento da barra de pesquisa
+    let input = document.getElementById('barraDePesquisa');
+    
+    // 2. Pega o texto digitado e converte para maiúsculas
+    let filtro = input.value.toUpperCase();
+
+    // 3. Pega a grelha onde estão todos os cards
+    let grid = document.querySelector('.species-grid');
+    
+    // 4. Pega todos os cards individuais
+    let cards = grid.querySelectorAll('.species-card');
+
+    // 5. Passa por cada card, um por um
+    for (let i = 0; i < cards.length; i++) {
+        let card = cards[i];
+        
+        // 6. Pega o <h3> de dentro do card (onde está o nome)
+        let h3 = card.querySelector('h3');
+        
+        if (h3) { // Garante que o h3 existe
+            let nomeDaPlanta = (h3.textContent || h3.innerText).toUpperCase();
+
+            // 7. Compara o nome da planta com o filtro
+            if (nomeDaPlanta.includes(filtro)) {
+                card.style.display = ""; // Mostra o card
+            } else {
+                card.style.display = "none"; // Esconde o card
+            }
+        }
+    }
 }
