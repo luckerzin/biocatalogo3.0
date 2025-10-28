@@ -302,32 +302,36 @@ if (typeof module !== 'undefined' && module.exports) {
 // =======================================================
 // FUNÇÃO DE FILTRO QUE O SEU HTML PROCURA
 // =======================================================
+// =======================================================
+// FUNÇÃO DE FILTRO ATUALIZADA (PESQUISA NOME POPULAR E CIENTÍFICO)
+// =======================================================
 function filtrarEspecies() {
     
-    // 1. Pega o elemento da barra de pesquisa
+    // 1. Pega o texto digitado
     let input = document.getElementById('barraDePesquisa');
-    
-    // 2. Pega o texto digitado e converte para maiúsculas
     let filtro = input.value.toUpperCase();
 
-    // 3. Pega a grelha onde estão todos os cards
+    // 2. Pega todos os cards
     let grid = document.querySelector('.species-grid');
-    
-    // 4. Pega todos os cards individuais
     let cards = grid.querySelectorAll('.species-card');
 
-    // 5. Passa por cada card, um por um
+    // 3. Passa por cada card
     for (let i = 0; i < cards.length; i++) {
         let card = cards[i];
         
-        // 6. Pega o <h3> de dentro do card (onde está o nome)
+        // 4. Pega os elementos do nome popular (h3) E do nome científico (p)
         let h3 = card.querySelector('h3');
+        let p = card.querySelector('.scientific-name'); // <-- NOVO
         
-        if (h3) { // Garante que o h3 existe
-            let nomeDaPlanta = (h3.textContent || h3.innerText).toUpperCase();
+        if (h3 && p) { // Garante que ambos existem
+            
+            // 5. Pega o texto dos dois
+            let nomePopular = (h3.textContent || h3.innerText).toUpperCase();
+            let nomeCientifico = (p.textContent || p.innerText).toUpperCase(); // <-- NOVO
 
-            // 7. Compara o nome da planta com o filtro
-            if (nomeDaPlanta.includes(filtro)) {
+            // 6. CONDIÇÃO ATUALIZADA:
+            // Verifica se o filtro está no nome popular OU no nome científico
+            if (nomePopular.includes(filtro) || nomeCientifico.includes(filtro)) {
                 card.style.display = ""; // Mostra o card
             } else {
                 card.style.display = "none"; // Esconde o card
